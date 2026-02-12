@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rhythm Game Prototype</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="audio-track" src="assets/maps/map1/map1.mp3" preload="auto" loop></audio>
+
+    <div id="ui-overlay">
+
+        <div id="score">Score: 0 | Combo: 0 | Multiplier: 1x</div>
+        <div id="debug">Time: 0.000s (Pre-Game) | Raw Time: 0.000s | Sync Offset: 0.250s | Speed: 100.0 | Active Notes: 0</div>
+
+        <div id="start-menu">
+            <h1>Rhythm Game Prototype</h1>
+            <button id="start-button">Start Game</button>
+            <button id="show-settings-button">Settings</button>
+        </div>
+
+        <div id="settings-menu" style="display: none;">
+            <h2>Game Settings</h2>
+
+            <label for="note-speed-input">Note Speed (Units/sec):</label>
+            <input type="number" id="note-speed-input" value="200.0" step="10.0" min="50.0">
+
+            <label for="spawn-z-input">Note Spawn Z Distance:</label>
+            <input type="number" id="spawn-z-input" value="200.0" step="10.0" min="50.0">
+
+            <label for="audio-offset-input">Audio Sync Offset (seconds):</label>
+            <input type="number" id="audio-offset-input" value="0.250" step="0.001" min="-1.0" max="1.0">
+
+            <button id="back-to-main-button">Save & Back</button>
+        </div>
+
+        <div id="dynamic-message-container"></div>
+
+        <div id="error-log-container"></div>
+        <div id="error-box" style="display: none;"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

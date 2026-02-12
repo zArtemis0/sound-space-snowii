@@ -1,0 +1,17 @@
+{
+    "metadata": {
+        "title": "Example Track",
+        "artist": "Gemini Demo",
+        "noteSpeed": 100,
+        "travelDistance": 40
+    },
+    "notes": [
+        {"time": 1.5, "x": 2, "y": 1},
+        {"time": 2, "x": 1, "y": 1},
+        {"time": 2.5, "x": 2, "y": 1},
+        {"time": 3, "x": 1, "y": 1},
+        {"time": 3.5, "x": 2, "y": 1},
+        {"time": 4, "x": 1, "y": 1},
+        {"time": 4.5, "x": 2, "y": 1}
+    ]
+}

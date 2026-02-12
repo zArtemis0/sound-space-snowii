@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    color: white;
+    font-family: sans-serif;
+}
+
+canvas {
+    display: block;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allows mouse interaction with canvas below, unless over a menu */
+}
+
+/* Persistent Display Elements (Top Left) */
+#score, #debug {
+    position: absolute;
+    left: 10px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: monospace;
+    z-index: 10;
+}
+#score { top: 10px; }
+#debug { top: 40px; }
+
+/* Menu Styling (Center Screen) */
+#start-menu, #settings-menu {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: auto; /* Enable clicks on menu */
+}
+
+#settings-menu label, #settings-menu input {
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#settings-menu input {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+#start-menu button, #settings-menu button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Dynamic Message Container (Right Side) */
+#dynamic-message-container {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 300px;
+    pointer-events: none;
+    z-index: 100;
+    display: flex;
+    flex-direction: column-reverse; /* Stacks new messages below old ones */
+    align-items: flex-end;
+}
+
+/* Dynamic Message Boxes (The Green Text/Sync Feedback) */
+.dynamic-debug-message {
+    background-color: rgba(0, 150, 0, 0.85); /* Green box style */
+    color: white;
+    padding: 8px 12px;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    font-family: monospace;
+    font-size: 14px;
+    opacity: 1;
+    transition: opacity 1.5s ease-out, transform 0.5s ease-out;
+    max-width: 100%;
+    text-align: right;
+}
+
+/* Error Boxes (Critical/Permanent) */
+#error-box {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+#error-log-container {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 300px;
+    z-index: 99;
+}
+.permanent-error-log {
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white;
+    padding: 5px;
+    margin-top: 2px;
+    border-radius: 3px;
+    font-size: 12px;
+}
